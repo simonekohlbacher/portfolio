@@ -1,0 +1,36 @@
+<template>
+  <div
+    v-editable="blok"
+    class="w-full px-44 py-20 h-60 text-center"
+  >
+
+    <h2 class="text-2xl font-bold tracking-wider"
+         v-html="heading"></h2>
+
+    <br>
+
+    <div class="text-base tracking-wider"
+         v-html="text"></div>
+
+    <StoryblokComponent
+        v-for="blok in blok.columns"
+        :key="blok._uid"
+        :blok="blok"
+    />
+  </div>
+
+</template>
+
+<script setup>
+
+const props = defineProps({ blok: Object });
+
+const text = computed(() =>
+    renderRichText(props.blok.text)
+);
+
+const heading = computed(() =>
+    renderRichText(props.blok.heading)
+);
+
+</script>

@@ -8,7 +8,7 @@
     <img :src="blok.img.filename" :alt="blok.img.alt" class="max-h-[300px]"/>
 
     <StoryblokComponent class="max-w-full"
-                        v-for="column in blok.contacttexts"
+                        v-for="column in blok.contact"
                         :key="column._uid"
                         :blok="column"
     />

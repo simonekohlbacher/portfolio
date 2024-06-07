@@ -12,9 +12,23 @@
            v-html="contact"></div>
 
 
+      <div class="container grid md:grid-cols-3 gap-6">
+
+        <a :href="blok.mail.url" target="_blank" rel="noopener noreferrer" class="inline-block py-2 rounded-[5px] mt-4 button buttonSec">
+          Mail
+        </a>
+
+        <a :href="blok.insta.url" target="_blank" rel="noopener noreferrer" class="inline-block py-2 rounded-[5px] mt-4 button buttonSec">
+          Insta
+        </a>
+
+        <a :href="blok.linkedin.url" target="_blank" rel="noopener noreferrer" class="inline-block py-2 rounded-[5px] mt-4 button buttonSec">
+          LinkedIn
+        </a>
 
       </div>
 
+    </div>
     </div>
 </template>
 
