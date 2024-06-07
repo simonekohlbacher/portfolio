@@ -1,0 +1,32 @@
+.button {
+    background-color: #000;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Sanfte Übergänge */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    justify-content: center;
+}
+
+.buttonSec:hover {
+    background-color: #fff !important;
+}
+
+.button:hover {
+    background-color: #c6cdbc;
+    color: #000;
+}
+
+
+
+.nav-link {
+    @apply px-4 py-2 rounded transition transform;
+}
+.nav-link:hover {
+    @apply text-white bg-black;
+}
+

@@ -1,17 +1,14 @@
 <template>
   <div
-      v-editable="blok"
-      class="container grid md:grid-cols-2 place-items-center max-w-full min-h-96"
+      v-editable="blok" class="w-full h-24 bg-[#f4eee1] flex items-center justify-between px-4">
 
-  >
 
-    <StoryblokComponent class="max-w-full"
-                        v-for="column in blok.heading"
-                        :key="column._uid"
-                        :blok="column"
-    />
+    <h1 class="text-m mtracking-wider font-bold"
+        v-html="copyright"></h1>
+    <div class="text-xl tracking-wider"
+         v-html="contact"></div>
 
-    <img v-if="blok.img" :src="getImageUrl(blok.img)" class="max-w-full min-h-96"/>
+
 
 
   </div>
@@ -19,9 +16,14 @@
 
 <script setup>
 
-defineProps({ blok: Object });
+const props = defineProps({ blok: Object });
 
-function getImageUrl(image) {
-  return image.filename ? `https://a.storyblok.com/f/98699/1200x800/${image.filename}` : '';
-}
+const copyright = computed(() =>
+    renderRichText(props.blok.copyright)
+);
+
+const contact = computed(() =>
+    renderRichText(props.blok.contact)
+);
+
 </script>
