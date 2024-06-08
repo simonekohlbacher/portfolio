@@ -2,7 +2,7 @@
 
   <div id="contact"
        v-editable="blok"
-       class="w-full p-20 max-w-full min-h-96 max-h-96 grid place-items-center text-right	"
+       class="p-20 min-h-96 max-h-96 grid place-items-center text-right	"
   >
     <div class="space-y-4"> <!-- Container für vertikale Abstände -->
 
@@ -11,10 +11,9 @@
       <div class="text-xl tracking-wider"
            v-html="contact"></div>
 
-
       <div class="container grid md:grid-cols-3 gap-6">
 
-        <a :href="blok.mail.url" target="_blank" rel="noopener noreferrer" class="inline-block py-2 rounded-[5px] mt-4 button buttonSec">
+        <a href="mailto:example@example.com" target="_blank" rel="noopener noreferrer" class="inline-block py-2 rounded-[5px] mt-4 button buttonSec">
           Mail
         </a>
 

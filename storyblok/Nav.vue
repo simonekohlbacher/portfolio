@@ -1,6 +1,6 @@
 <template>
   <div id="start"
-      v-editable="blok" class="w-full h-24 bg-[#f4eee1] flex items-center justify-between px-4">
+      v-editable="blok" class="h-28 bg-[#f4eee1] flex items-center justify-between px-4">
     <div class="flex items-center">
 
       <img :src="blok.logo.filename" :alt="blok.logo.alt" class="h-20 ml-6"/>
@@ -13,6 +13,13 @@
           :blok="navItem"
       />
     </div>
+
+    <a v-if="blok.home && blok.home.story && blok.home.story.url"
+       :href="blok.home.story.url"
+       class="inline-block mt-4 mr-6 button w-38">
+      Back to start
+    </a>
+
   </div>
 </template>
 

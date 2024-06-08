@@ -1,7 +1,7 @@
 <template>
   <div
     v-editable="blok"
-    class="w-full px-44 py-20 h-60 text-center"
+    class="px-44 py-20 h-68 text-center"
   >
 
     <h2 class="text-2xl font-bold tracking-wider"

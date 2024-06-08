@@ -2,10 +2,10 @@
 
   <div
       v-editable="blok"
-      class="w-full p-20 max-w-full min-h-96 max-h-96 grid place-items-center text-left	"
+      class="p-20 min-h-96 max-h-96 grid place-items-center text-left	"
   >
-    <div class="space-y-4"> <!-- Container für vertikale Abstände -->
-      <h1 class="text-4xl font-bold tracking-wider"
+    <div class="space-y-4">
+      <h1 class="text-4xl font-bold tracking-wider mb-12"
           v-html="h1"></h1>
       <h2 class="text-2xl tracking-wider"
           v-html="h2"></h2>

@@ -1,7 +1,7 @@
 <template>
   <div
       v-editable="blok"
-    class="grid grid-cols-2 place-items-center w-screen h-4/5 bg-[#ffffff]">
+    class="grid grid-cols-2 place-items-center h-4/5 bg-[#ffffff]">
 
 
     <StoryblokComponent class="max-w-full"

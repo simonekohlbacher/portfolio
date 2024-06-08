@@ -1,7 +1,7 @@
 <template>
   <div class="relative w-64 h-64 flex flex-col items-center justify-center">
     <!-- Hintergrundkreis -->
-    <svg class="absolute w-full h-full" viewBox="0 0 36 36">
+    <svg class="absolute " viewBox="0 0 36 36">
       <path
           class="text-gray-200"
           d="M18 2.0845
