@@ -1,23 +1,19 @@
 <template>
-  <div
+   <div
       v-editable="blok"
-      class="grid md:grid-cols-2 place-items-center h-4/6 bg-[#c6cdbc]">
+      class="grid md:grid-cols-2 place-items-center h-[80vh] md:h-[60vh] lg:h-[70vh] bg-[#c6cdbc]">
 
     <img :src="blok.img.filename" :alt="blok.img.alt" class="max-h-[300px]"/>
 
-    <StoryblokComponent class="max-w-full"
-                        v-for="column in blok.contact"
-                        :key="column._uid"
-                        :blok="column"
-    />
-
-
+     <StoryblokComponent v-for="column in blok.contact"
+                         :key="column._uid"
+                         :blok="column"/>
 
   </div>
 </template>
 
 <script setup>
 
-defineProps({ blok: Object });
+defineProps({ blok: Object })
 
 </script>

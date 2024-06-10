@@ -6,9 +6,9 @@
     <StoryblokComponent
       v-for="blok in blok.box"
       :key="blok._uid"
-      :blok="blok"
-    />
+      :blok="blok"/>
   </div>
+
 </template>
 
 <script setup>

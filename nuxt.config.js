@@ -8,8 +8,8 @@ export default defineNuxtConfig({
       ],
       bodyAttrs: {
         class: 'font-sans'
-      },
-    },
+      }
+    }
   },
   css: ['@/assets/css/main.css'],
   modules: [
@@ -20,9 +20,9 @@ export default defineNuxtConfig({
         apiOptions: {
           region: '' // Set 'US" if your space is created in US region (EU default)
         }
-      },
+      }
     ],
-    '@nuxtjs/tailwindcss',
+    '@nuxtjs/tailwindcss'
   ]
 
 

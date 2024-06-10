@@ -6,7 +6,7 @@
     border-radius: 8px;
     padding: 8px 12px;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Sanfte Übergänge */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     justify-content: center;
@@ -23,10 +23,5 @@
 
 
 
-.nav-link {
-    @apply px-4 py-2 rounded transition transform;
-}
-.nav-link:hover {
-    @apply text-white bg-black;
-}
+
 

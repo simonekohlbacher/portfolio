@@ -4,7 +4,7 @@
 
   <div id="projects"
        v-editable="blok"
-       class="grid md:grid-cols-3 gap-x-12 gap-y-12 ml-24 mr-24 mb-16">
+       class="grid md:grid-cols-3 gap-x-12 gap-y-12 md:mx-24 mb-16 sm:mx-4">
 
     <StoryblokComponent
         v-for="blok in blok.columns"
@@ -17,7 +17,5 @@
 <script setup>
 const props = defineProps({ blok: Object });
 
-const headline = computed(() =>
-    renderRichText(props.blok.headline)
-);
+const headline = computed(() => renderRichText(props.blok.headline));
 </script>

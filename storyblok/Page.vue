@@ -33,7 +33,12 @@
 //import Mainnav from "./Mainnav.vue";
 import { useNuxtApp } from '#app';
 const { $globalSettings } = useNuxtApp();
-
-
 defineProps({ blok: Object });
 </script>
+
+
+<style>
+html {
+  scroll-behavior: smooth;
+}
+</style>

@@ -2,7 +2,7 @@
 
   <div
       v-editable="blok"
-      class="p-20 min-h-96 max-h-96 grid place-items-center text-left	"
+      class="p-20 grid place-items-center text-left"
   >
     <div class="space-y-4">
       <h1 class="text-4xl font-bold tracking-wider mb-12"
@@ -21,17 +21,9 @@
 <script setup>
 
 const props = defineProps({ blok: Object });
+const h1 = computed(() => renderRichText(props.blok.H1));
+const h2 = computed(() => renderRichText(props.blok.H2));
+const text = computed(() => renderRichText(props.blok.Text));
 
-const h1 = computed(() =>
-  renderRichText(props.blok.H1)
-);
-
-const h2 = computed(() =>
-  renderRichText(props.blok.H2)
-);
-
-const text = computed(() =>
-  renderRichText(props.blok.Text)
-);
 
 </script>
