@@ -20,11 +20,11 @@
         :blok="blok" />
 
 
-  <StoryblokComponent
-      v-for="blok in blok.footer"
-      :key="blok._uid"
-      :blok="blok"
-  />
+    <StoryblokComponent
+        v-for="blok in blok.footer"
+        :key="blok._uid"
+        :blok="blok"
+    />
   </div>
 </template>
 

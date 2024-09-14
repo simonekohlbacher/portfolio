@@ -1,10 +1,10 @@
 <template>
   <div
-    v-editable="blok"
-    class="md:px-44 sm:px-12 py-20 h-68 text-center">
+      v-editable="blok"
+      class="md:px-44 sm:px-12 py-20 h-68 text-center">
 
     <h2 class="text-2xl font-bold tracking-wider"
-         v-html="heading"></h2>
+        v-html="heading"></h2>
 
     <br>
 

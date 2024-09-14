@@ -39,22 +39,25 @@
   </div>
 
   <!-- Mobile Menu -->
-  <div v-if="isMenuOpen" class="md:hidden bg-[#f4eee1]">
+  <div
+      :class="['md:hidden bg-[#f4eee1] overflow-hidden transition-all duration-500', isMenuOpen ? 'max-h-screen' : 'max-h-0']"
+  >
     <StoryblokComponent
         v-for="navItem in blok.navItems"
         :key="navItem._uid"
         :blok="navItem"
-        class="block text-center py-2"
+        class="block text-left py-2"
     />
     <a
         v-if="blok.home && blok.home.story && blok.home.story.url"
         :href="blok.home.story.url"
-        class="block text-center py-2"
+        class="block text-left py-2 button"
     >
       Back to start
     </a>
   </div>
 </template>
+
 
 <script setup>
 import { ref } from 'vue';
@@ -67,3 +70,19 @@ const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
 </script>
+
+
+<style scoped>
+/* Definiert die Transition und die initiale max-height */
+.max-h-0 {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+
+.max-h-screen {
+  max-height: 100vh; /* oder eine andere maximale Höhe, je nach Bedarf */
+  overflow: hidden;
+  transition: max-height 0.5s ease-in;
+}
+</style>

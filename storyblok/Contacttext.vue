@@ -2,7 +2,7 @@
   <div id="contact"
        v-editable="blok"
        class="grid place-items-center"
-       >
+  >
 
     <div class="lg:text-right md:text-right sm:text-left">
 
