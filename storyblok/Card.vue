@@ -7,6 +7,7 @@
       <img :src="blok.img.filename" :alt="blok.img.alt"
            class="image-zoom w-full max-h-[400px] max-w-[400px] object-cover object-center "/>
     </div>
+    <span>sdfsdf</span>
     <h1 class="text-xl font-bold mt-4" v-html="h1"></h1>
 
     <div class="text-l flex-grow mt-4" v-html="text"></div>
