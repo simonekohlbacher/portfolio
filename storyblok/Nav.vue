@@ -2,7 +2,7 @@
   <div
       id="start"
       v-editable="blok"
-      class="h-28 bg-[#000000] flex items-center justify-between"
+      class="h-28 bg-[#f4eee1] flex items-center justify-between"
   >
     <div>
       <a :href="'/home'">
