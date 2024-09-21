@@ -2,14 +2,6 @@ import fs from 'fs';
 import path from 'path';
 
 export default defineNuxtConfig({
-
-  server: {
-    https: {
-      key: fs.readFileSync(path.resolve(__dirname, 'localhost-key.pem')),
-      cert: fs.readFileSync(path.resolve(__dirname, 'localhost.pem'))
-    },
-    port: 3000
-  },
   app: {
     head: {
       link: [
