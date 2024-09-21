@@ -1,11 +1,24 @@
+import fs from 'fs';
+import path from 'path';
+
 export default defineNuxtConfig({
+
+  server: {
+    https: {
+      key: fs.readFileSync(path.resolve(__dirname, 'localhost-key.pem')),
+      cert: fs.readFileSync(path.resolve(__dirname, 'localhost.pem'))
+    },
+    port: 3000
+  },
   app: {
     head: {
       link: [
         {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
         {rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true},
         {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap'},
-      ],
+        {rel: 'stylesheet',href: 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css'},
+
+],
       bodyAttrs: {
         class: 'font-sans'
       }

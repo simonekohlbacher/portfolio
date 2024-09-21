@@ -7,11 +7,8 @@
       <img :src="blok.img.filename" :alt="blok.img.alt"
            class="image-zoom w-full max-h-[400px] max-w-[400px] object-cover object-center "/>
     </div>
-    <span>sdfsdf</span>
     <h1 class="text-xl font-bold mt-4" v-html="h1"></h1>
-
     <div class="text-l flex-grow mt-4" v-html="text"></div>
-
     <a v-if="blok.button?.story?.url" :href="blok.button.story.url"
        class="inline-block mt-2 button w-28">
       See More
@@ -21,6 +18,9 @@
 </template>
 
 <script setup>
+import {renderRichText} from "@storyblok/vue";
+import {computed} from "vue";
+
 const props = defineProps({blok: Object});
 const h1 = computed(() => renderRichText(props.blok.h1));
 const text = computed(() => renderRichText(props.blok.text));

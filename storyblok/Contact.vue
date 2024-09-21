@@ -10,10 +10,10 @@
                         :blok="column"/>
 
   </div>
+
+
 </template>
 
 <script setup>
-
 defineProps({ blok: Object })
-
 </script>
