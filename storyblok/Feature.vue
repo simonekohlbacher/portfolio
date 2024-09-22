@@ -1,5 +1,6 @@
 <template>
   <div v-editable="blok" class="md:px-44 sm:px-12 py-20 h-68 text-center">
+
     <div ref="headingSection" class="heading">
       <h2 class="text-2xl font-bold tracking-wider" v-html="heading"></h2> <br>
     </div>
@@ -13,6 +14,7 @@
       v-for="blok in blok.columns"
       :key="blok._uid"
       :blok="blok"/>
+
 </template>
 
 <script setup>
@@ -27,21 +29,28 @@ const headingSection = ref(null);
 const textSection = ref(null);
 
 onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        if (entry.target === headingSection.value) {
-          entry.target.classList.add('animate');
-        } else if (entry.target === textSection.value) {
-          entry.target.classList.add('animate');
-        }
-      }
-    });
-  });
+  const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            if (entry.target === headingSection.value) {
+              entry.target.classList.add('animate');
+              observer.unobserve(entry.target); // Stoppt das Beobachten nach der Animation
+            } else if (entry.target === textSection.value) {
+              entry.target.classList.add('animate');
+              observer.unobserve(entry.target); // Stoppt das Beobachten nach der Animation
+            }
+          }
+        });
+      },
+      { rootMargin: '0px 0px -100px 0px' } // Trigger ein wenig früher, bevor das Element den Viewport verlässt
+  );
 
   observer.observe(headingSection.value);
   observer.observe(textSection.value);
 });
+
+
 </script>
 
 <style scoped>
@@ -56,15 +65,15 @@ onMounted(() => {
   transform: translateX(0);
 }
 
-
 .text {
   opacity: 0;
-  transform: translateX(400px);
-  transition: opacity 1s ease, transform 1s ease-in 0.8s;
+  transition: opacity 1s ease 1.2s;
 }
 
 .text.animate {
   opacity: 1;
-  transform: translateX(0);
 }
+
+
+
 </style>

@@ -29,6 +29,7 @@
       />
     </div>
 
+
     <a
         v-if="blok.home && blok.home.story && blok.home.story.url"
         :href="blok.home.story.url"
@@ -60,7 +61,7 @@
 
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { StoryblokComponent } from '@storyblok/vue';
 
 const props = defineProps({ blok: Object });
@@ -69,6 +70,7 @@ const isMenuOpen = ref(false);
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
+
 </script>
 
 

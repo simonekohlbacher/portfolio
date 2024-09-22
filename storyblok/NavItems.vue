@@ -5,10 +5,43 @@
     <a href="#projects" class="nav-link">Projects</a>
     <a href="#contact" class="nav-link">Contact</a>
   </div>
+
+  <!-- Dark Mode Toggler -->
+  <label class="inline-flex items-center cursor-pointer">
+    <input type="checkbox" v-model="isDarkMode" class="sr-only peer" @change="toggleDarkMode">
+    <div class="relative mx-6 w-11 h-6 bg-white rounded-full outline dark:bg-gray-700">
+    <span class="absolute left-1 top-0.45 transition-transform duration-200"
+          :class="{'translate-x-5': isDarkMode}">
+      <i class="fas fa-sun text-gray-700" v-if="!isDarkMode"></i>
+      <i class="fas fa-moon text-gray-300" v-else></i>
+    </span>
+    </div>
+  </label>
+
+
+
 </template>
 
 <script setup>
+import {ref, watch} from "vue";
+import '@fortawesome/fontawesome-free/css/all.css';
+
 defineProps({ blok: Object });
+
+
+// Zustand für den Dark Mode (initial auf false)
+const isDarkMode = ref(false);
+
+// Funktion zum Umschalten des Dark Mode
+const toggleDarkMode = () => {
+  // Hier ist der Code zur Anpassung des Dark Modes
+  document.documentElement.classList.toggle('dark', isDarkMode.value);
+};
+
+// Automatisch den Body anpassen, wenn Dark Mode aktiviert wird
+watch(isDarkMode, (newVal) => {
+  document.documentElement.classList.toggle('dark', newVal);
+});
 </script>
 
 <style scoped>
