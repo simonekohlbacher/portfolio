@@ -1,7 +1,7 @@
 <template>
   <div
       v-editable="blok"
-      class="flex flex-col justify-between p-4 mx-8 mb-12 rounded-[5px] text-left min-h-96">
+      class="flex flex-col justify-between p-4 mx-8 mb-12 rounded-[5px] text-left min-h-96 dark:bg-[#111] dark:text-white">
 
     <div class="image-container drop-shadow-2xl">
       <img :src="blok.img.filename" :alt="blok.img.alt"
@@ -10,7 +10,7 @@
     <h1 class="text-xl font-bold mt-4" v-html="h1"></h1>
     <div class="text-l flex-grow mt-4" v-html="text"></div>
     <a v-if="blok.button?.story?.url" :href="blok.button.story.url"
-       class="inline-block mt-2 button w-28">
+       class="inline-block mt-2 button w-28 dark:bg-[#fff] dark:text-[#111]">
       See More
     </a>
 

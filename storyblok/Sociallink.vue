@@ -5,7 +5,7 @@
        class="">
 
     <a :href="blok.link.url">
-      <img :src="blok.icon.filename" class="socialicon"/>
+      <img :src="blok.icon.filename" class="socialicon dark:invert dark:brightness-0 dark:contrast-200"/>
     </a>
 
   </div>

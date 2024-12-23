@@ -1,6 +1,6 @@
 <template>
   <div id="about"
-       v-editable="blok" class="bg-[#c6cdbc]">
+       v-editable="blok" class="bg-[#c6cdbc] dark:bg-[#111]">
 
     <StoryblokComponent class=""
                         v-for="column in blok.feature"

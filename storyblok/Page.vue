@@ -1,6 +1,5 @@
 <template>
 
-  <div v-editable="blok" :class="{ dark: isDarkMode }">
 
       <StoryblokComponent
           v-for="blok in blok.nav"
@@ -20,30 +19,44 @@
           :blok="blok"
       />
 
-    </div>
+
 
 </template>
 
 <script setup>
 
-//import Mainnav from "./Mainnav.vue";
-import { useNuxtApp } from '#app';
+import { provide, ref, onMounted, onUnmounted } from 'vue';
 import 'animate.css';
-
-const { $globalSettings } = useNuxtApp();
 
 defineProps({ blok: Object });
 
+const isDarkMode = ref(false);
+const checkDarkMode = () => {
+  const htmlElement = document.documentElement;
+  isDarkMode.value = htmlElement.classList.contains('dark');
+};
 
+onMounted(() => {
+  checkDarkMode();
+
+  const observer = new MutationObserver(() => {
+    checkDarkMode();
+  });
+
+  observer.observe(document.documentElement, { attributes: true });
+
+  onUnmounted(() => {
+    observer.disconnect();
+  });
+});
+
+// Globally provide `isDarkMode`
+provide('isDarkMode', isDarkMode);
 </script>
 
 
 <style>
 html {
   scroll-behavior: smooth;
-}
-
-html.dark p {
-  color: red ;
 }
 </style>

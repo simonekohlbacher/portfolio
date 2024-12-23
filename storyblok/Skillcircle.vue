@@ -8,7 +8,7 @@
     <!-- Hintergrundkreis -->
     <svg class="absolute w-full h-full" viewBox="0 0 36 36">
       <path
-          class="text-white"
+          class="text-white dark:text-[#111]"
           d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
           fill="none"
           stroke="currentColor"
@@ -19,7 +19,7 @@
     <!-- Fortschrittskreis -->
     <svg class="absolute w-full h-full" viewBox="0 0 36 36">
       <path
-          :style="{ stroke: '#000000' }"
+          :style="{ stroke: isDarkMode ? '#fff' : '#000' }"
           class="text-beige-500"
           d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
           fill="none"
@@ -36,12 +36,12 @@
       <img
           :src="blok.icon.filename"
           :alt="blok.icon.alt"
-          class="w-16 h-16 object-cover transition-opacity duration-300"
+          class="w-16 h-16 object-cover transition-opacity duration-300 dark:invert dark:brightness-0 dark:contrast-200"
           :class="{ 'opacity-0': isHovered || isClicked }"
       />
 
       <!-- Beschreibung des Skills -->
-      <div class="absolute inset-0 flex items-center justify-center">
+      <div class="absolute inset-0 flex items-center justify-center dark:text-white">
         <!-- Überschrift anzeigen, wenn nicht gehovert oder geklickt -->
         <div v-if="!isHovered && !isClicked" class="text-l font-bold text-center">
           <div v-html="text" class="mt-24"></div>
@@ -56,9 +56,10 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import {ref, computed, inject} from 'vue';
 import { renderRichText } from '@storyblok/vue';
 
+const isDarkMode = inject('isDarkMode');
 const props = defineProps({ blok: Object });
 const text = computed(() => renderRichText(props.blok.text));
 const description = computed(() => renderRichText(props.blok.description));

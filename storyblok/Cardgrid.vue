@@ -1,9 +1,9 @@
 <template>
-  <h1 class="text-4xl font-bold mt-12 mb-8 text-center" v-html="headline"></h1>
+  <h1 class="text-4xl font-bold mt-12 mb-8 text-center dark:bg-[#111]" v-html="headline"></h1>
 
   <div id="projects" v-editable="blok">
 
-    <transition-group name="fade" tag="div" class="grid md:grid-cols-3 gap-x-12 gap-y-12 md:mx-24 mb-16 sm:mx-4">
+    <transition-group name="fade" tag="div" class="grid md:grid-cols-3 gap-x-12 gap-y-12 md:mx-24 mb-16 sm:mx-4 dark:bg-[#111]">
       <StoryblokComponent
           v-for="(item, index) in visibleCards"
           :key="item._uid"
@@ -17,7 +17,7 @@
     <button
         v-if="visibleCards.length < props.blok.columns.length"
         @click="loadMore"
-        class="mt-2 button w-40"
+        class="mt-2 button w-40 dark:text-[#fff]"
     >
       Show me more
     </button>

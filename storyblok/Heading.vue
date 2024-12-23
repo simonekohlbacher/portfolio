@@ -1,6 +1,6 @@
 <template>
 
-  <div v-editable="blok" class="py-20 grid text-left">
+  <div v-editable="blok" class="py-20 grid text-left md:col-start-1 md:col-end-2 dark:text-white">
 
       <div class="typewriter">
         <h1 class="text-3xl font-bold tracking-wider mb-12">{{ displayedText }}</h1>

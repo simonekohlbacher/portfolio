@@ -1,12 +1,12 @@
 <template>
-  <div v-editable="blok" class="md:px-44 sm:px-12 py-20 h-68 text-center">
+  <div v-editable="blok" class="md:px-44 sm:px-12 py-20 h-68 text-center dark:bg-[#111]">
 
     <div ref="headingSection" class="heading">
-      <h2 class="text-2xl font-bold tracking-wider" v-html="heading"></h2> <br>
+      <h2 class="text-2xl font-bold tracking-wider dark:text-white" v-html="heading"></h2> <br>
     </div>
 
     <div ref="textSection" class="text">
-      <div class="text-base tracking-wider px-20" v-html="text"></div>
+      <div class="text-base tracking-wider px-20 dark:text-white" v-html="text"></div>
     </div>
   </div>
 
@@ -70,9 +70,18 @@ onMounted(() => {
   transition: opacity 1s ease 1.2s;
 }
 
+.text p span {
+  color: red !important;
+}
+
 .text.animate {
   opacity: 1;
 }
+
+.dark .text-white {
+  color: white !important;
+}
+
 
 
 

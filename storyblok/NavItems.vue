@@ -1,5 +1,5 @@
 <template>
-  <div v-editable="blok" class="nav-container">
+  <div v-editable="blok" class="nav-container block text-left py-2">
     <a href="#start" class="nav-link">Start</a>
     <a href="#about" class="nav-link">About</a>
     <a href="#projects" class="nav-link">Projects</a>
@@ -9,11 +9,11 @@
   <!-- Dark Mode Toggler -->
   <label class="inline-flex items-center cursor-pointer">
     <input type="checkbox" v-model="isDarkMode" class="sr-only peer" @change="toggleDarkMode">
-    <div class="relative mx-6 w-11 h-6 bg-white rounded-full outline dark:bg-gray-700">
+    <div class="relative mx-6 w-11 h-6 bg-black rounded-full outline dark:bg-white">
     <span class="absolute left-1 top-0.45 transition-transform duration-200"
           :class="{'translate-x-5': isDarkMode}">
-      <i class="fas fa-sun text-gray-700" v-if="!isDarkMode"></i>
-      <i class="fas fa-moon text-gray-300" v-else></i>
+      <i class="fas fa-sun text-[#f4eee1]" v-if="!isDarkMode"></i>
+      <i class="fas fa-moon text-black" v-else></i>
     </span>
     </div>
   </label>
@@ -50,7 +50,9 @@ watch(isDarkMode, (newVal) => {
 }
 .nav-link {
   @apply px-4 py-2 rounded transition transform;
+  @apply text-black dark:text-white;
 }
+
 .nav-link:hover {
   @apply text-white bg-black;
 }

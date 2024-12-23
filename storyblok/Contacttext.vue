@@ -4,7 +4,7 @@
        class="grid place-items-center"
   >
 
-    <div class="lg:text-right md:text-right sm:text-left">
+    <div class="lg:text-right md:text-right sm:text-left dark:text-white">
 
       <h1 class="md:text-4xl sm:text-s tracking-wider font-bold"
           v-html="headline"></h1>

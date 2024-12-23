@@ -1,7 +1,7 @@
 <template>
   <div
       v-editable="blok"
-      class="container min-h-96 grid md:grid-cols-3 place-items-center mx-auto"
+      class="container min-h-96 grid md:grid-cols-3 place-items-center mx-auto dark:bg-[#111]"
   >
     <StoryblokComponent
         v-for="blok in blok.box"
