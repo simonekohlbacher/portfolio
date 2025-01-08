@@ -8,18 +8,19 @@
     <!-- Hintergrundkreis -->
     <svg class="absolute w-full h-full" viewBox="0 0 36 36">
       <path
-          class="text-white dark:text-[#111]"
-          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
+          class="text-white"
+      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
       />
     </svg>
+
 
     <!-- Fortschrittskreis -->
     <svg class="absolute w-full h-full" viewBox="0 0 36 36">
       <path
-          :style="{ stroke: isDarkMode ? '#fff' : '#000' }"
+          :style="{ stroke: isDarkMode ? 'grey' : '#000' }"
           class="text-beige-500"
           d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
           fill="none"

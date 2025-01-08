@@ -1,6 +1,6 @@
 <template>
   <div
-      v-editable="blok" class="h-24 bg-[#f4eee1] flex items-center justify-between px-4 dark:bg-[#111]">
+      v-editable="blok" class="h-24 bg-[#f4eee1] flex items-center justify-between px-4 dark:bg-[#111] dark:border-t">
 
     <h1 class="text-m  font-bold md:ml-12 sm:ml-4 dark:text-white"
         v-html="copyright"></h1>

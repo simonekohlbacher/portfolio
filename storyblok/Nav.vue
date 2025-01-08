@@ -97,4 +97,8 @@ const isDarkMode = inject('isDarkMode');
   overflow: hidden;
   transition: max-height 0.5s ease-in;
 }
+
+.dark #start {
+  border-bottom: 0.8px solid #fff;
+}
 </style>

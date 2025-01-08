@@ -1,31 +1,35 @@
 <template>
   <div
+      id="start"
       v-editable="blok"
       :class="{ dark: isDarkMode }"
       class="grid grid-cols-1 md:grid-cols-2 place-items-center h-3/4 bg-[#fff] dark:bg-[#111]">
+    <!-- Heading-Komponente -->
     <StoryblokComponent
         v-for="column in blok.heading"
         :key="column._uid"
-        :blok="column" />
+        :blok="column"
+    />
 
+    <!-- Bild -->
     <img
-        :src="isDarkMode ? nasaImage : blok.img.filename"
+        :src="showNasaImage ? nasaImage : blok.img.filename"
         :alt="blok.img.alt"
-        class="md:h-[70vh] sm:h-auto justify-self-end md:col-start-2 md:col-end-3"/>
+        class="md:h-[70vh] sm:h-auto justify-self-end md:col-start-2 md:col-end-3"
+    />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, inject } from 'vue';
-// :src="isDarkMode ? nasaImage : blok.img.filename"
-
+import { ref, onMounted, provide, inject } from 'vue';
 
 defineProps({ blok: Object });
 
 const nasaImage = ref('');
 const isDarkMode = inject('isDarkMode');
+const showNasaImage = ref(false); // Zustand für NASA-Bild
 
-// API-Daten abrufen
+// NASA-Bild abrufen
 const fetchNasaImage = async () => {
   try {
     const response = await fetch('https://api.nasa.gov/planetary/apod?api_key=BAvLWzoAn9CVHGLWx6YwEPWilvm9SBz6Is8q9h4e');
@@ -36,9 +40,23 @@ const fetchNasaImage = async () => {
   }
 };
 
+// Zustand mit anderen Komponenten teilen
+provide('setShowNasaImage', (value) => {
+  showNasaImage.value = value;
+});
 
-// Dark Mode und API aufrufen, wenn Komponente geladen ist
+// NASA-Bild vorab laden
 onMounted(() => {
   fetchNasaImage();
 });
 </script>
+
+
+
+<style scoped>
+
+.dark #start {
+  border-bottom: 0.8px solid #fff;
+}
+
+</style>
