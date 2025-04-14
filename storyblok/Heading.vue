@@ -17,10 +17,18 @@
       <button
           @click="onButtonClick"
           v-if="isDarkMode"
-          :class="[buttonClicked ? 'bg-gray-800 disbaled' : 'bg-white text-black']"
+          :disabled="buttonClicked"
+          :class="[buttonClicked ? 'bg-gray-800 disabled' : 'bg-white text-black']"
           class="mt-4 px-4 py-2 font-bold rounded shadow hover:bg-[#c6cdbc]">
-        {{ buttonClicked ? 'tadaaa!' : 'Show NASA Picture of the day ->' }}
+        <template v-if="buttonClicked">
+          <span v-if="imageLoaded">tadaaa!</span>
+          <span v-else><span class="loader"></span></span>
+        </template>
+        <template v-else>
+          Show NASA Picture of the day ->
+        </template>
       </button>
+
     </div>
 
   </div>
@@ -31,6 +39,8 @@
 import 'animate.css';
 import { ref, inject, computed, onMounted } from 'vue';
 import { renderRichText } from '@storyblok/vue';
+const imageLoaded = inject('imageLoaded');
+
 
 // Zustand für Dark Mode und NASA-Button
 const isDarkMode = inject('isDarkMode');
@@ -100,6 +110,23 @@ onMounted(() => {
 
 .typewriter h1 {
   animation: blink-caret 0.75s step-end infinite; /* Blinken des Cursors */
+}
+
+.loader {
+  border: 4px solid #f3f3f3; /* Light Grey */
+  border-top: 4px solid #555; /* Darker for spin effect */
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 </style>

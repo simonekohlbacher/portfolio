@@ -15,7 +15,8 @@
     <img
         :src="showNasaImage ? nasaImage : blok.img.filename"
         :alt="blok.img.alt"
-        class="md:h-[70vh] sm:h-auto justify-self-end md:col-start-2 md:col-end-3"
+        @load="onImageLoad"
+    class="md:h-[70vh] sm:h-auto justify-self-end md:col-start-2 md:col-end-3"
     />
   </div>
 </template>
@@ -28,6 +29,17 @@ defineProps({ blok: Object });
 const nasaImage = ref('');
 const isDarkMode = inject('isDarkMode');
 const showNasaImage = ref(false); // Zustand für NASA-Bild
+const imageLoaded = ref(false);
+
+provide('imageLoaded', imageLoaded);
+
+const onImageLoad = () => {
+  if (showNasaImage.value) {
+    imageLoaded.value = true;
+  }
+  console.log('Image loaded:', imageLoaded.value);
+};
+
 
 // NASA-Bild abrufen
 const fetchNasaImage = async () => {
