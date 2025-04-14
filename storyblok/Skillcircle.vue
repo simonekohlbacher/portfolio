@@ -48,7 +48,7 @@
           <div v-html="text" class="mt-24"></div>
         </div>
         <!-- Beschreibung anzeigen, wenn gehovert oder geklickt -->
-        <div v-if="isHovered || isClicked" class="border-1 px-4 py-2 text-l text-center">
+        <div v-if="isHovered || isClicked" class="border-1 px-4 py-2 text-xs text-center">
           <div v-html="description"></div>
         </div>
       </div>
