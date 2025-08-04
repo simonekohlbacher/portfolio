@@ -2,15 +2,17 @@
 
   <div v-editable="blok" class="py-20 grid text-left md:col-start-1 md:col-end-2 dark:text-white">
 
-      <div class="typewriter">
+      <div class="typewriter px-12">
         <h1 class="text-3xl font-bold tracking-wider mb-12">{{ displayedText }}</h1>
       </div>
 
     <div class="animate__animated animate__fadeInUp animate__delay-2s">
-       <h2 class="text-xl tracking-wider" v-html="h2"></h2>
-        <div class="text-l whitespace-nowrap overflow-hidden text-ellipsis" v-html="text" v-if="text"></div>
+      <div class="px-12">
+        <h2 class="text-xl tracking-wider" v-html="h2"></h2>
+      </div>
+        <div class="px-12 text-l overflow-hidden text-ellipsis" v-html="text" v-if="text"></div>
       <div
-          class="text-l whitespace-nowrap overflow-hidden text-ellipsis"
+          class="px-12 text-l whitespace-nowrap overflow-hidden text-ellipsis"
           v-html="text_dark"
           v-if="text_dark && isDarkMode">
       </div>
